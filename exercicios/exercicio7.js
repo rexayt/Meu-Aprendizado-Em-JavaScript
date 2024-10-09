@@ -4,3 +4,7 @@ parâmetros, “ax2”, “bx” e “c”, de tal modo que na equação: 3x² -
 -5, 12. Como retorno deve ser passado um vetor que tem 2 valores um para cada possível resultado, mesmo 
 que os resultados sejam iguais. Caso o delta seja negativo, retorne, ao invés do vetor, um string com a frase: 
 “Delta é negativo”. */
+
+let Bhaskara = (ax2, bx, c) => {
+
+}
