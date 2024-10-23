@@ -1,0 +1,54 @@
+<h1>Projeto</h1>
+<style>
+    .aa {
+        font-size: 17px;
+    }
+</style>
+<ul class="tree">
+    <li>
+        <a class='aa'href="" onclick="quandoClicado('listaBackend');event.preventDefault();">backend</a>
+        <ul id="listaBackend">
+            <li>
+                <a href="" onclick="quandoClicado('listaApp');event.preventDefault();">app</a>
+                <ul id="listaApp">
+                    <li>produto.js</li>
+                    <li>usuario.js</li>
+                    <li>venda.js</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" onclick="quandoClicado('listaConfig');event.preventDefault();">config</a>
+                <ul id="listaConfig">
+                    <li>banco.js</li>
+                    <li>rotas.js</li>
+                    <li>servidor.js</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="" onclick="quandoClicado('listaFrontEnd');event.preventDefault();">frontend</a>
+        <ul id="listaFrontEnd">
+            <li>
+                <a href="" onclick="quandoClicado('listaPublic');event.preventDefault();">public</a>
+                <ul id="listaPublic">
+                    <li>app.css</li>
+                    <li>app.js</li>
+                    <li>index.js</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+<script>
+    let quandoClicado = id => {
+        let identificador = document.getElementById(id).style
+        if (identificador.display === ''){
+            identificador.display = 'none'
+        }else {
+            identificador.display = ''
+        }
+    }
+</script>

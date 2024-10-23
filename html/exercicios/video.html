@@ -1,0 +1,61 @@
+<video id="meuVideo" width="800" autoplay controlsList="nodownload">
+    <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4">
+    Seu browser não suporta a tag video.
+</video>
+
+<div wm-progresso="meuVideo" class="progresso">
+    <div>
+        
+    </div>
+</div>
+
+<div>
+    <button wm-play="meuVideo">Play</button>
+    <button wm-pause="meuVideo">Pause</button>
+</div>
+
+<style>
+    .progresso {
+        height: 20px;
+        width: 500px;
+        border: solid 1px #444;
+        margin: 20px;
+    }
+
+    .progresso > div {
+        background-color: red;
+        color: white;
+        height: 100%;
+        text-align: right;
+        font-size: 14px;
+        width: 0%;
+    }
+</style>
+
+<script>
+    let barraDeProgresso = document.querySelector(' [wm-progresso=meuVideo] > div ');
+    let video = document.getElementById('meuVideo');
+    video.oncontextmenu = () => false
+
+    video.addEventListener("timeupdate", event => {
+        let agora = video.currentTime
+        let duracao = video.duration
+        let porcentagem = (agora/duracao) * 100;
+        barraDeProgresso.style.width = `${porcentagem}%`
+        barraDeProgresso.innerHTML = `${Math.floor(porcentagem)}%`
+    })
+
+    const play = (vid) => {
+        vid.play();
+    }
+
+    const pause = (vid) => {
+        vid.pause();
+    }
+
+    function pausarPlay(id, vid) {
+        document.querySelector(`[wm-play=${id}]`).onclick = () => vid.play()
+        document.querySelector(`[wm-pause=${id}]`).onclick = () => vid.pause()
+    }
+    pausarPlay('meuVideo', video)
+</script>
