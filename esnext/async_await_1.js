@@ -6,7 +6,7 @@ const esperarPor = (tempo = 2000) => {
 
 //esperarPor(2000)
 //    .then(esperarPor)
-//    .then(esperarPor)
+//    .then(esPerarPor)
 
 let retornaValor = () => {
     return new Promise(resolve => setTimeout(() => resolve(10), 5000))
