@@ -1,13 +1,99 @@
 <!DOCTYPE html>
 <html>
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>Desafio Menu</title>
+        <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <style>
+        body {
+            margin: 0px;
+        }
+            
+        a{
+            font-family: 'Oswald';
+            text-decoration: none;
+            vertical-align: middle;
+            font-size: 24px;
+            color: white;
+        }
 
-<head>
-    <meta charset="UTF-8">
-    <title>Desafio Menu</title>
-    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <style>
-        /* ... */
+        .cabecalho {
+            width: 100%;
+            background-color: rgb(32, 32, 32);
+            display: flex;
+            border-bottom: solid 5px rgb(2, 104, 163);
+            box-sizing: content-box;
+        }
+        .logo, .menu-toggle, .menu, .autenticacao {
+            display: inline-block;
+        }
+
+        .logo {
+            height: 100%;
+            width: 320px;
+            margin: 10px;
+        }
+        .logo a {
+            width: 100%;
+            height: 100%;
+            margin: 10px;
+        }
+        .logo img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .menu-toggle {
+            margin: auto 20px auto auto;
+        }
+
+        .menu {
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+        .menu ul {
+            list-style: none;
+        }
+        .menu li {
+            display: inline-block;
+            padding: 5px;
+            margin: 5px
+        }
+
+        .menu li:hover {
+            background-color: rgb(30, 137, 170);
+        }
+
+        .autenticacao {
+            margin: auto 20px auto auto;
+        }
+
+        .botao-destaque {
+            display: inline-block;
+            background-color: red;
+            border-radius: 30px;
+            text-align: center;
+            vertical-align: middle;
+            padding: 5px 15px 5px 15px;
+            margin: 0 0 0 10px;
+        }
+
+        @media (max-width: 930px) {
+            .autenticacao{ display: none; }
+        }
+
+        @media (max-width: 709px){
+            .menu-toggle { display: inline-block; }
+            .menu {display: none;}
+        }
+
+        @media (min-width: 710px) {
+            .menu-toggle {display: none}
+            .menu {display: inline-block;}
+        }
     </style>
 </head>
 
@@ -39,12 +125,19 @@
         </nav>
         <aside class="autenticacao">
             <a href="#login">Login</a>
-            <a href="#registar" class="botao destaque">Registrar</a>
+            <a href="#registar" class="botao-destaque">Registrar</a>
         </aside>
     </header>
 
     <script>
-        // ...
+        window.onhashchange = function(e) {
+            const oldURL = e.oldURL.split('#')[1]
+            const newURL = e.newURL.split('#')[1]
+            const oldLink = document.querySelector(`.menu a[href='#${oldURL}']`)
+            const newLink = document.querySelector(`.menu a[href='#${newURL}']`)
+            oldLink && oldLink.classList.remove('selected')
+            newLink && newLink.classList.add('selected')
+        }
     </script>
 </body>
 
